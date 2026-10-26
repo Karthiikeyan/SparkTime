@@ -1,0 +1,1 @@
+CREATE INDEX "collection_items_collection_idx" ON "studio"."collection_items" USING btree ("collection_id");

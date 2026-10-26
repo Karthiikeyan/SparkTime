@@ -1,0 +1,92 @@
+{
+  "name": "karthikeyan-a-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Karthikeyan A - personal digital studio: a content-driven publishing system, knowledge graph and portfolio.",
+  "type": "module",
+  "engines": {
+    "node": ">=20.9.0"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "vercel-build": "tsx scripts/migrate-on-deploy.ts && next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "check": "npm run typecheck && npm run lint && npm run test && npm run build",
+    "db:local": "tsx scripts/local-db.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "db:check": "tsx scripts/check-db.ts",
+    "db:seed": "tsx --conditions=react-server scripts/seed.ts",
+    "db:setup": "npm run db:migrate && npm run db:seed",
+    "apply-ia": "tsx --conditions=react-server scripts/apply-ia.ts",
+    "export": "tsx --conditions=react-server scripts/export.ts",
+    "import": "tsx --conditions=react-server scripts/import.ts",
+    "audit:site": "node scripts/site-audit.mjs",
+    "interviews:install": "tsx --conditions=react-server scripts/interviews-install.ts",
+    "interviews:build": "tsx scripts/interviews-build.ts",
+    "interviews:validate": "tsx scripts/interviews-validate.ts"
+  },
+  "dependencies": {
+    "@next/third-parties": "^16.3.8",
+    "@tiptap/core": "^3.31.3",
+    "@tiptap/extension-details": "^3.31.3",
+    "@tiptap/extension-list": "^3.31.3",
+    "@tiptap/extension-table": "^3.31.3",
+    "@tiptap/extensions": "^3.31.3",
+    "@tiptap/pm": "^3.31.3",
+    "@tiptap/react": "^3.31.3",
+    "@tiptap/starter-kit": "^3.31.3",
+    "@tiptap/suggestion": "^3.31.3",
+    "@vercel/analytics": "^2.0.1",
+    "aws4fetch": "^1.0.20",
+    "d3-force": "^3.0.0",
+    "dompurify": "^3.4.16",
+    "drizzle-orm": "^0.45.2",
+    "js-yaml": "^4.3.2",
+    "lucide-react": "^1.45.0",
+    "marked": "^18.0.12",
+    "next": "^16.3.8",
+    "postgres": "^3.4.9",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "server-only": "^0.0.1",
+    "sharp": "^0.35.4",
+    "shiki": "^4.4.3",
+    "zod": "^4.6.2"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "@electric-sql/pglite-socket": "^0.2.11",
+    "@playwright/test": "^1.63.0",
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/d3-force": "^3.0.10",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^24.13.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.8",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.13",
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.0"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils": {
+      "esbuild": "^0.25.12"
+    }
+  },
+  "allowScripts": {
+    "esbuild@0.18.20": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "unrs-resolver@1.12.2": true
+  }
+}

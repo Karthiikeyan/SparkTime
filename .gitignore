@@ -1,0 +1,31 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# local data (PGlite database, local media, exports) — never commit
+/.data/
+/exports/
+
+# interview research working material (third-party quotes) — imported through Studio, never committed
+/research/
+
+# env files — only .env.example is committed
+.env
+.env.*
+!.env.example
+
+# testing / tooling
+/coverage
+/test-results/
+/playwright-report/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+.vercel
